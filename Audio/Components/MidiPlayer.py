@@ -33,7 +33,6 @@ class MidiPlayer:
         self.midi_out.send_message(note_off)
 
     def play_volca(self, num, length, velocity=100):
-        print(velocity)
         velocity = [0xb0, 0x29, velocity]
         note_on = [0x90, num, 1]
         note_off = [0x80, num, 0]

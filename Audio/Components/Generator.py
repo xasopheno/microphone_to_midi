@@ -61,12 +61,13 @@ class Generator:
     def play(self):
         note = self.store.note
         volume = self.store.volume
-        length = self.store.length
+        length = 0.01
 
-        # if self.beyond_threshold():
-            # if self.play_midi:
-        self.player.play(note, 0.01, volume + 30)
+        if volume > 10:
+            volume += 30
+        self.player.play(note, length, volume)
 
-        # print(self.store.past_prediction)
+        if self.show_prediction:
+            print(note, length, volume)
 
         self.store.past_prediction = self.store.values
