@@ -1,0 +1,10 @@
+dropout = 0.2
+n_time_steps = 20
+semi_redundancy_step = 1
+lstm_size = 128
+lr = 0.001
+epochs = 500
+batch_size = 256
+n_to_generate = 20
+sample_rate = 44100
+chunk_size = 2048
