@@ -1,0 +1,4 @@
+pyaudio 
+rtmidi 
+numpy 
+aubio
