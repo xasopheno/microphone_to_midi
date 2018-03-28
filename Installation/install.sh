@@ -1,5 +1,5 @@
 ﻿sudo apt-get install -y cmake git libasound2-dev python3-pip
-sudo pip3 install -r ./requirements.txt
+sudo pip3 install -r ./Requirements.txt
 mkdir ../.tmp
 cd ../.tmp
 wget http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz
