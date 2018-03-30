@@ -1,4 +1,3 @@
 pyaudio 
 rtmidi 
-numpy 
-aubio
+numpy
