@@ -1,4 +1,4 @@
-# Python package to convert microphone sounds to MIDI notes:
+# Program that converts microphone sounds to MIDI notes:
 
 * Installation: 
 	1) git clone https://github.com/xasopheno/microphone_to_midi
