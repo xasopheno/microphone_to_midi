@@ -8,7 +8,6 @@ cd ./portaudio
 make
 make install
 ldconfig
+cd ../../Installation/
 pip3 install -r ./Requirements.txt
-cd ../
-rm -r ./.tmp
-python3 Record.py
+rm -r ../.tmp
