@@ -27,7 +27,7 @@ def record_options():
                    help="Specify if midi should be sent with python-rt-midi.",
                    dest="play_midi",
                    required=False,
-                   default=False,
+                   default=True,
                    type=bool,
                    nargs=1)
 
