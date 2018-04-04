@@ -2,7 +2,7 @@ import pyaudio
 import time
 import random
 
-from Audio.Components.MidiPlayer import MidiPlayer
+# from Audio.Components.MidiPlayer import MidiPlayer
 from Audio.Components.StreamToFrequency import StreamToFrequency
 from Audio.Components.Store import Store
 
@@ -41,7 +41,7 @@ class Generator:
         player = None
         if self.play_midi:
             try:
-                player = MidiPlayer(synth='Volca')
+                player = MidiPlayer(synth='other')
                 logger('Connected')
             except:
                 print('No midi destinations!')
@@ -65,9 +65,11 @@ class Generator:
 
         if volume > 10:
             volume += 30
-        self.player.play(note, length, volume)
 
-        if self.show_prediction:
-            print(note, length, volume)
+        print(note, length, volume)
+        # self.player.play(note, length, volume)
+        #
+        # if self.show_prediction:
+        #     print(note, length, volume)
 
         self.store.past_prediction = self.store.values
