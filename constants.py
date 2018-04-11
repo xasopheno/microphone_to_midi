@@ -6,5 +6,5 @@ lr = 0.001
 epochs = 500
 batch_size = 256
 n_to_generate = 20
-sample_rate = 22050
-chunk_size = 1024
+sample_rate = 44100
+chunk_size = 512
