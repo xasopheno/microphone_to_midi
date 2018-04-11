@@ -3,6 +3,7 @@ import aubio
 import shutil
 import pyaudio
 import math
+import constants
 
 
 class StreamToFrequency:
@@ -10,7 +11,12 @@ class StreamToFrequency:
         self.terminal_width = self.get_screen_width()
         self.store = store
         self.show_volume=show_volume
-        self.pDetection = aubio.pitch("yinfft", 2048, 2048, 44100)
+        self.pDetection = aubio.pitch(
+                          "yinfft", 
+                          constants.chunk_size, 
+                          constants.chunk_size, 
+                          constants.sample_rate
+            )
         self.pDetection.set_unit("midi")
         self.pDetection.set_silence(-40)
         self.pDetection.set_tolerance(.4)
