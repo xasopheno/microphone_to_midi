@@ -2,7 +2,7 @@ import pyaudio
 import time
 import random
 
-# from Audio.Components.MidiPlayer import MidiPlayer
+from Audio.Components.MidiPlayer import MidiPlayer
 from Audio.Components.StreamToFrequency import StreamToFrequency
 from Audio.Components.Store import Store
 
@@ -67,9 +67,6 @@ class Generator:
             volume += 30
 
         print(note, length, volume)
-        # self.player.play(note, length, volume)
-        #
-        # if self.show_prediction:
-        #     print(note, length, volume)
-
+        self.player.play(note, length, volume)
+        
         self.store.past_prediction = self.store.values
