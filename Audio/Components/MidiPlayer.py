@@ -13,7 +13,7 @@ class MidiPlayer:
         midi_out = rtmidi.MidiOut()
         available_ports = midi_out.get_ports()
         print(available_ports)
-        midi_out.open_port(2)
+        midi_out.open_port(1)
         return midi_out
 
     def play(self, num, length, velocity=100):

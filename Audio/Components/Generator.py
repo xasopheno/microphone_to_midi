@@ -50,7 +50,7 @@ class Generator:
     def generate(self):
         while True:
             self.play()
-            time.sleep(0.01)
+            time.sleep(0.007)
 
     def beyond_threshold(self):
         threshold = True
