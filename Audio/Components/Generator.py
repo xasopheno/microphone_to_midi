@@ -1,6 +1,7 @@
 import pyaudio
 import time
 import random
+import json
 
 from Audio.Components.MidiPlayer import MidiPlayer
 from Audio.Components.StreamToFrequency import StreamToFrequency
@@ -8,6 +9,8 @@ from Audio.Components.Store import Store
 
 from Audio.Components.helpers.logger import logger
 import constants
+
+from socketIO_client import SocketIO, LoggingNamespace
 
 
 class Generator:
@@ -17,6 +20,7 @@ class Generator:
         self.show_prediction = args.display_prediction
         self.display_volume = args.display_volume
         self.filtered = args.filtered
+        self.socket = SocketIO('localhost', 9876, LoggingNamespace)
 
         self.store = Store()
         self.detector = StreamToFrequency(
@@ -58,6 +62,16 @@ class Generator:
             threshold = self.store.new_note
         return threshold
 
+    def send_to_socket(self, note):
+        data = json.dumps({'freq': note})
+        self.socket.emit('freq_change', data)
+
+    def midi_to_hertz(midi):
+        if midi == 0:
+            return 0
+        f = 2**((midi-69)/12) * 440
+        return f
+
     def play(self):
         note = self.store.note
         volume = self.store.volume
@@ -67,6 +81,7 @@ class Generator:
             volume += 30
 
         print(note, length, volume)
+        self.send_to_socket(note)
         self.player.play(note, length, volume)
         
         self.store.past_prediction = self.store.values
